@@ -4,6 +4,9 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# 忽略特定文件
+com.xiaoli.lovemasteragent.demo.invoke.TestApiKey
+
 ### STS ###
 .apt_generated
 .classpath
