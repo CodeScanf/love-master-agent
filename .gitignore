@@ -5,7 +5,7 @@ target/
 !**/src/test/**/target/
 
 # 忽略特定文件
-com.xiaoli.lovemasteragent.demo.invoke.TestApiKey
+application-local.yml
 
 ### STS ###
 .apt_generated
@@ -34,3 +34,4 @@ build/
 
 ### VS Code ###
 .vscode/
+/src/main/java/com/xiaoli/lovemasteragent/demo/invoke/TestApiKey.java
