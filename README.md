@@ -1,0 +1,15 @@
+# Love_Master_Agent
+## 初始化项目
+- 项目初始化，引入依赖。
+- 创建项目结构
+- 在demo.invoke文件中尝试四种大模型调用方式包括
+    - Http调用
+    - LangChain
+    - Sdk
+    - SpringAI
+## 初始调用大模型
+- 创建`SYSTEM_PROMPT`
+- 初始化`chatClient`
+- 实现初始化基于内存的对话记忆
+- 实现初始化基于文件的对话记忆
+- 实现自定义日志输出
