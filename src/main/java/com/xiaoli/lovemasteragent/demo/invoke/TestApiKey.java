@@ -8,5 +8,5 @@ package com.xiaoli.lovemasteragent.demo.invoke;
  * @date 2025/5/20 20:19:40
  */
 public interface TestApiKey {
-    String API_KEY = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    String API_KEY = "sk-xxxxxxxxxxxxxxxx";
 }

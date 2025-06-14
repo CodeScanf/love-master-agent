@@ -6,7 +6,7 @@ target/
 
 # 忽略特定文件
 application-local.yml
-temp
+tmp
 
 ### STS ###
 .apt_generated

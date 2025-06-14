@@ -35,7 +35,6 @@ import static org.springframework.ai.chat.client.advisor.AbstractChatMemoryAdvis
  **/
 @Component
 @Slf4j
-
 public class LoveApp {
     private final ChatClient chatClient;
 
@@ -46,7 +45,7 @@ public class LoveApp {
 
     public LoveApp(ChatModel dashscopeChatModel) {
         // 初始化基于文件的对话记忆
-        String dir = System.getProperty("user.dir") + File.separator + "temp" + File.separator + "chat-memory";
+        String dir = System.getProperty("user.dir") + File.separator + "tmp" + File.separator + "chat-memory";
         FileBasedChatMemory chatMemory = new FileBasedChatMemory(dir);
         // 初始化基于内存的对话记忆
 //        ChatMemory chatMemory = new InMemoryChatMemory();
@@ -78,6 +77,12 @@ public class LoveApp {
     record LoveReport(String title, List<String> suggestions) {
     }
 
+    /**
+     * AI 恋爱报告功能（结构化输出）
+     * @param message
+     * @param chatId
+     * @return
+     */
     public LoveReport doChatWithReport(String message, String chatId) {
         LoveReport loveReport = chatClient
                 .prompt()
@@ -131,6 +136,32 @@ public class LoveApp {
         return content;
     }
 
+
+    // AI 调用工具能力
+    @Resource
+    private ToolCallback[] allTools;
+
+    /**
+     * AI 恋爱报告功能（支持调用工具）
+     * @param message
+     * @param chatId
+     * @return
+     */
+    public String doChatWithTools(String message, String chatId) {
+        ChatResponse response = chatClient
+                .prompt()
+                .user(message)
+                .advisors(spec -> spec.param(CHAT_MEMORY_CONVERSATION_ID_KEY, chatId)
+                        .param(CHAT_MEMORY_RETRIEVE_SIZE_KEY, 10))
+                // 开启日志，便于观察效果
+                .advisors(new MyLoggerAdvisor())
+                .tools(allTools)
+                .call()
+                .chatResponse();
+        String content = response.getResult().getOutput().getText();
+        log.info("content: {}", content);
+        return content;
+    }
 
 }
 
