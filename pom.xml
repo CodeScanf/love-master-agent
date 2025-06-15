@@ -81,6 +81,13 @@
             <artifactId>spring-ai-advisors-vector-store</artifactId>
             <version>1.0.0-M7</version>
         </dependency>
+        <!-- spring ai mcpclient-->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-mcp-client-spring-boot-starter</artifactId>
+            <version>1.0.0-M6</version>
+        </dependency>
+
         <!-- 集成 jsoup HTML 解析库 -->
         <dependency>
             <groupId>org.jsoup</groupId>

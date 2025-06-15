@@ -7,7 +7,8 @@ target/
 # 忽略特定文件
 application-local.yml
 tmp
-
+mcp-servers.json
+TestApiKey
 ### STS ###
 .apt_generated
 .classpath

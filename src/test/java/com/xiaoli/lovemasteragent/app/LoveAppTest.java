@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
+
 @SpringBootTest
 class LoveAppTest {
 
@@ -44,7 +45,7 @@ class LoveAppTest {
     void doChatWithRag() {
         String chatId = UUID.randomUUID().toString();
         String message = "我已经结婚了，但是婚后关系不太亲密，怎么办？";
-        String answer =  loveApp.doChatWithRag(message, chatId);
+        String answer = loveApp.doChatWithRag(message, chatId);
         Assertions.assertNotNull(answer);
     }
 
@@ -52,7 +53,7 @@ class LoveAppTest {
     void doChatWithCloudRag() {
         String chatId = UUID.randomUUID().toString();
         String message = "我已经结婚了，但是婚后关系不太亲密，怎么办？";
-        String answer =  loveApp.doChatWithCloudRag(message, chatId);
+        String answer = loveApp.doChatWithCloudRag(message, chatId);
         Assertions.assertNotNull(answer);
     }
 
@@ -80,6 +81,19 @@ class LoveAppTest {
     private void testMessage(String message) {
         String chatId = UUID.randomUUID().toString();
         String answer = loveApp.doChatWithTools(message, chatId);
+        Assertions.assertNotNull(answer);
+    }
+
+    @Test
+    void doChatWithMcp() {
+        String chatId = UUID.randomUUID().toString();
+        // 测试地图 MCP
+//        String message = "我的另一半居住在上海静安区，请帮我找到 5 公里内合适的约会地点";
+//        String answer = loveApp.doChatWithMcp(message, chatId);
+
+        // 测试图片搜索 MCP
+        String message = "帮我搜索一些哄另一半开心的图片";
+        String answer = loveApp.doChatWithMcp(message, chatId);
         Assertions.assertNotNull(answer);
     }
 
