@@ -7,17 +7,17 @@
         "@amap/amap-maps-mcp-server"
       ],
       "env": {
-        "AMAP_MAPS_API_KEY": "2d8ac1f1905c2573447de50293450175"
+        "AMAP_MAPS_API_KEY": ""
       }
     },
-    "xiaoli-image-search-server": {
+    "xiaoli-image-search-mcp-server": {
       "command": "java",
       "args": [
         "-Dspring.ai.mcp.server.stdio=true",
         "-Dspring.main.web-application-type=none",
         "-Dlogging.pattern.console=",
         "-jar",
-        "xiaoli-image-search-server/target/xiaoli-image-search-server-0.0.1-SNAPSHOT.jar"
+        "xiaoli-image-search-server1/target/xiaoli-image-search-server1-0.0.1-SNAPSHOT.jar"
       ],
       "env": {}
     }
